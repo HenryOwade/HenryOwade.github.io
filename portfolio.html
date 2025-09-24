@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Henry Owade</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #1e40af;
+      --accent: #1d4ed8;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+    }
+
+    .dark-theme {
+      --bg-color: #0f172a;
+      --text-color: #f1f5f9;
+      --card-bg: #1e293b;
+      --border-color: #334155;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .bg-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .nav-transparent {
+      background-color: rgba(30, 58, 138, 0.9);
+      backdrop-filter: blur(10px);
+    }
+    
+    .nav-solid {
+      background-color: #1e3a8a;
+    }
+    
+    .nav-link {
+      color: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+    }
+
+    .horizontal-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+
+    .horizontal-scroll > div {
+      flex: 0 0 300px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar-thumb {
+      background-color: var(--primary);
+      border-radius: 3px;
+    }
+
+    .portfolio-item {
+      transition: all 0.3s ease;
+    }
+
+    .image-buttons {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .image-buttons {
+      opacity: 1;
+    }
+
+    .image-button {
+      background: rgba(255,255,255,0.9);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .dark-theme .image-button {
+      background: rgba(30, 41, 59, 0.9);
+      color: #f1f5f9;
+    }
+
+    .image-button:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .dark-theme .image-button:hover {
+      background: #1e293b;
+    }
+
+    .section-header {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      bottom: -8px;
+      left: 0;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    .section-header:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      animation: blink 1s ease-in-out infinite alternate;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.6; }
+    }
+
+    .dark-theme .hero-pattern {
+      background-image: radial-gradient(circle at 25% 25%, rgba(30, 58, 138, 0.2) 0%, transparent 50%), 
+                       radial-gradient(circle at 75% 75%, rgba(30, 64, 175, 0.2) 0%, transparent 50%);
+    }
+
+    .dark-theme .bg-gradient-to-b {
+      background: linear-gradient(to bottom, var(--bg-color), #1e293b);
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="text-2xl font-bold text-white">Henry Owade</a>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="portfolio.html" class="nav-link font-bold">Portfolio</a>
+          <a href="experience.html" class="nav-link">Experience</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <button id="themeToggle" class="theme-toggle p-2 rounded-full">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <a href="https://drive.google.com/uc?export=download&id=1ZmgtN0ZVZImp6L0VVnMf6GAB1oL9yXD7" class="bg-white text-blue-900 px-4 py-2 rounded-full text-sm flex items-center space-x-2 hover:bg-gray-100 transition-all font-medium">
+            <i class="fas fa-file-download"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+        <button id="menuToggle" class="md:hidden text-white">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div id="mobileNav" class="hidden md:hidden py-4">
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="nav-link py-2">Home</a>
+          <a href="services.html" class="nav-link py-2">Services</a>
+          <a href="portfolio.html" class="nav-link py-2 font-bold">Portfolio</a>
+          <a href="experience.html" class="nav-link py-2">Experience</a>
+          <a href="blog.html" class="nav-link py-2">Blog</a>
+          <a href="contact.html" class="nav-link py-2">Contact</a>
+          <button id="mobileThemeToggle" class="theme-toggle p-2 rounded-full w-full text-left">
+            <i class="fas fa-moon mr-2" id="mobileThemeIcon"></i> Toggle Theme
+          </button>
+          <a href="https://drive.google.com/uc?export=download&id=1ZmgtN0ZVZImp6L0VVnMf6GAB1oL9yXD7" class="bg-white text-blue-900 px-4 py-2 rounded-full text-sm flex items-center justify-center space-x-2 mt-2 font-medium">
+            <i class="fas fa-file-download"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-white dark:bg-gray-900 relative overflow-hidden mt-16">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4 section-header">
+          My <span class="text-gradient">Portfolio</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Innovative projects in electronics, design, and simulation.
+        </p>
+      </div>
+
+      <div class="horizontal-scroll">
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Biometrics School Feeding System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Biometrics School Feeding System</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">IoT-enabled system with fingerprint authentication and mobile monitoring.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">IoT</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Cloud</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Mobile App</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Geolocation Emergency Alert System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Geolocation Emergency Alert System</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Real-time GPS tracking with SMS alerts and web dashboard.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">GPS</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">GSM</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Web App</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1524&q=80" alt="Smart Parking System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Smart Parking System</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">RFID-based parking management with real-time monitoring.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">RFID</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Sensors</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80" alt="Obstacle Avoidance Robot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Obstacle Avoidance Robot</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Autonomous robot with ultrasonic sensors and pathfinding.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Robotics</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Sensors</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="PCB Design Portfolio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">PCB Design Portfolio</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Multi-layer boards, high-frequency circuits, embedded layouts.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">KiCad</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Altium</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">PCB Design</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Electronics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border p-4 rounded-lg shadow-sm hover:shadow-md transition relative group bg-white dark:bg-gray-800 overflow-hidden min-w-[300px] portfolio-item">
+          <div class="relative h-48 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 overflow-hidden rounded-lg">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brand Identity Package" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="image-buttons">
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="#" target="_blank" class="image-button">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 space-y-2">
+            <h3 class="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Brand Identity Package</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Logos, business cards, letterheads, marketing materials.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Photoshop</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Illustrator</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Branding</span>
+              <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Print Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <p class="text-gray-600 dark:text-gray-300 mb-6">Interested in working together on a project?</p>
+        <a href="contact.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+          <i class="fas fa-envelope mr-2"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-b from-blue-900 to-blue-700 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">About Me</h3>
+          <p class="text-gray-300">
+            Electronics and Computer Engineering graduate from JKUAT, passionate about PCB design, IoT, and graphics.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+            <li><a href="services.html" class="text-gray-300 hover:text-white transition">Services</a></li>
+            <li><a href="portfolio.html" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
+            <li><a href="experience.html" class="text-gray-300 hover:text-white transition">Experience</a></li>
+            <li><a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-envelope"></i>
+              <span>oyotohenry2021@gmail.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-phone"></i>
+              <span>+254 114 364 956</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nairobi, Kenya</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-blue-800 text-center">
+        <p>&copy; 2025 Henry Owade. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254114364956" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+      const isOpen = !mobileNav.classList.contains('hidden');
+      menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.remove('nav-transparent');
+        navbar.classList.add('nav-solid');
+      } else {
+        navbar.classList.add('nav-transparent');
+        navbar.classList.remove('nav-solid');
+      }
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.classList.contains('light-theme')) {
+        html.classList.remove('light-theme');
+        html.classList.add('dark-theme');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        mobileThemeIcon.classList.remove('fa-moon');
+        mobileThemeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark-theme');
+        html.classList.add('light-theme');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        mobileThemeIcon.classList.remove('fa-sun');
+        mobileThemeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    mobileThemeToggle.addEventListener('click', toggleTheme);
+
+    // Check for saved theme preference or respect OS preference
+    if (localStorage.getItem('theme') === 'dark' || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+      document.documentElement.classList.add('dark-theme');
+      document.documentElement.classList.remove('light-theme');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      mobileThemeIcon.classList.remove('fa-moon');
+      mobileThemeIcon.classList.add('fa-sun');
+    }
+
+    // Smooth Scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
