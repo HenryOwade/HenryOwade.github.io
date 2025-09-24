@@ -1,7 +1,7 @@
 # 🌐 My Portfolio Website  
 
 Welcome to my personal portfolio website, built to showcase my projects, skills, and experience.  
-This site is live on **GitHub Pages** → [Visit Portfolio](https://HenryOwade.github.io/my_portfolio/)  
+This site is live on **GitHub Pages** → [Visit Portfolio](https://HenryOwade.github.io)  
 
 ---
 
@@ -35,7 +35,7 @@ I am available for:
 ## 📸 Preview  
 A visual preview/mockup will be added soon.  
 For now, visit the live site here:  
-👉 [Portfolio Website](https://HenryOwade.github.io/my_portfolio/)  
+👉 [Portfolio Website](https://HenryOwade.github.io)  
 
 ---
 
@@ -66,4 +66,4 @@ Professional project mockups for presentation.
 
 - 📧 Email: [oyotohenry2021@gmail.com](mailto:oyotohenry2021@gmail.com)  
 - 💼 LinkedIn: [Henry Owade](https://www.linkedin.com/in/henry-owade)  
-- 🌍 Portfolio: [Live Site](https://HenryOwade.github.io/my_portfolio/)  
+- 🌍 Portfolio: [Live Site](https://HenryOwade.github.io)  
