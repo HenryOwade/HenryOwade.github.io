@@ -22,6 +22,16 @@ I am continuously updating this site as I add new projects and refine the design
 
 ---
 
+## 💼 Freelance & Contract Work  
+I am available for:  
+- 🌍 **Freelance projects** (short or long term)  
+- 🤝 **Collaborations** with startups, schools, and individuals  
+- 🛠 **Custom solutions** in **IoT, PCB design, web dashboards, and graphics design**  
+
+📢 *If you’re looking for someone to turn your idea into a working product or polished design, let’s connect!*  
+
+---
+
 ## 📸 Preview  
 A visual preview/mockup will be added soon.  
 For now, visit the live site here:  
