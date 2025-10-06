@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Henry Owade - Electronics & Computer Engineer</title>
+  <title>Henry Owade - PCB Design & Electronics Engineer</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -90,13 +90,6 @@
       color: var(--text-color);
     }
 
-    .skills-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding-bottom: 0.5rem;
-    }
-
     .section-header {
       position: relative;
       display: inline-block;
@@ -130,47 +123,6 @@
       background: linear-gradient(to bottom, var(--bg-color), #1e293b);
     }
     
-    /* Mobile-specific styles */
-    @media (max-width: 768px) {
-      .skills-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-      }
-      
-      .skills-icon {
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-      
-      .skills-content {
-        width: 100%;
-      }
-      
-      .skills-badges {
-        justify-content: center;
-      }
-      
-      .hero-content {
-        text-align: center;
-        padding-top: 2rem;
-      }
-      
-      .hero-image {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-      }
-    }
-    
     /* WhatsApp button */
     .whatsapp-float {
       position: fixed;
@@ -202,11 +154,11 @@
     
     /* Fix for dark theme text visibility */
     .dark-theme .text-gray-600 {
-      color: #cbd5e1;
+      color: #e2e8f0;
     }
     
     .dark-theme .text-gray-300 {
-      color: #e2e8f0;
+      color: #cbd5e1;
     }
     
     .dark-theme .bg-blue-100 {
@@ -233,32 +185,6 @@
       background-color: rgba(133, 77, 14, 0.2);
     }
     
-    /* Skills placeholder images */
-    .skill-image {
-      width: 100%;
-      height: 120px;
-      background-color: #f1f5f9;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-    
-    .dark-theme .skill-image {
-      background-color: #334155;
-    }
-    
-    .skill-image i {
-      font-size: 2.5rem;
-      color: #64748b;
-    }
-    
-    .dark-theme .skill-image i {
-      color: #94a3b8;
-    }
-    
     /* Small avatar */
     .avatar-small {
       width: 40px;
@@ -274,6 +200,555 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* New Hero Section Styles */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .hero-content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      color: #1e293b;
+      z-index: 2;
+    }
+
+    .hero-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      color: #475569;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      color: #475569;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .hero-button-primary {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      color: white;
+    }
+
+    .hero-button-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+    }
+
+    .hero-button-secondary {
+      background: rgba(30, 58, 138, 0.1);
+      color: #1e3a8a;
+      border: 1px solid rgba(30, 58, 138, 0.2);
+    }
+
+    .hero-button-secondary:hover {
+      background: rgba(30, 58, 138, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .hero-highlight {
+      color: #1e40af;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .hero-description {
+        font-size: 1rem;
+      }
+      
+      .hero-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Professional Footer */
+    .professional-footer {
+      background: linear-gradient(135deg, #1e3a8a, #1e293b);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem 0;
+    }
+
+    .footer-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-divider {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Services Section */
+    .services-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+      margin-bottom: 4rem;
+    }
+
+    .services-hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .services-hero-content {
+      color: white;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .services-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .services-hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      height: 100%;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .service-image {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .service-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 1rem;
+    }
+
+    .carousel-item {
+      flex: 0 0 280px;
+      min-height: 320px;
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Compact Cards */
+    .compact-card {
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      min-height: auto;
+      height: 100%;
+    }
+
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Image overlay cards */
+    .image-overlay-card {
+      position: relative;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .image-overlay-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-overlay-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 1rem;
+    }
+
+    /* Promotional Banner */
+    .promo-banner {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      color: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    .promo-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Collapsible Sections */
+    .collapsible-section {
+      margin-bottom: 2rem;
+    }
+
+    .section-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .section-toggle:hover {
+      background: rgba(30, 58, 138, 0.05);
+    }
+
+    .section-toggle h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .section-content.open {
+      max-height: 2000px;
+    }
+
+    .toggle-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-icon.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* Auto-scroll animation */
+    .auto-scroll {
+      animation: autoScroll 60s linear infinite;
+    }
+
+    @keyframes autoScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-280px * 6 - 1rem * 6));
+      }
+    }
+
+    .carousel-wrapper.paused {
+      animation-play-state: paused;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .services-hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .services-hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .compact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-item {
+        flex: 0 0 260px;
+      }
+
+      .hero-content-wrapper {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Fix for dark theme visibility */
+    .dark-theme .text-gray-700 {
+      color: #e2e8f0;
+    }
+
+    .dark-theme .text-gray-500 {
+      color: #cbd5e1;
+    }
+
+    .dark-theme .text-gray-800 {
+      color: #f1f5f9;
+    }
+
+    .dark-theme .bg-white {
+      background-color: #1e293b;
+    }
+
+    .dark-theme .border-gray-100 {
+      border-color: #334155;
+    }
+
+    .dark-theme .border-gray-200 {
+      border-color: #475569;
+    }
+
+    .dark-theme .hero-text {
+      color: #f1f5f9;
+    }
+
+    .dark-theme .hero-title {
+      color: #f1f5f9;
+    }
+
+    .dark-theme .hero-subtitle {
+      color: #cbd5e1;
+    }
+
+    .dark-theme .hero-description {
+      color: #cbd5e1;
+    }
+
+    .dark-theme .hero-button-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .dark-theme .hero-button-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .dark-theme .section-toggle {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .dark-theme .section-toggle:hover {
+      background: rgba(30, 58, 138, 0.2);
+    }
   </style>
 </head>
 <body class="relative">
@@ -285,16 +760,16 @@
           <div class="avatar-small">
             <img src="https://i.postimg.cc/Df6RPDHK/Screenshot-20250709-091515-Gallery-Photoroom.png" alt="Henry Owade" />
           </div>
-          <a href="index.html" class="text-2xl font-bold text-white">Henry Owade</a>
+          <a href="#home" class="text-2xl font-bold text-white">Henry Owade</a>
         </div>
 
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="experience.html" class="nav-link">Experience</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
           <button id="themeToggle" class="theme-toggle p-2 rounded-full">
             <i class="fas fa-moon" id="themeIcon"></i>
           </button>
@@ -311,12 +786,12 @@
 
       <div id="mobileNav" class="hidden md:hidden py-4">
         <div class="flex flex-col space-y-4">
-          <a href="index.html" class="nav-link py-2">Home</a>
-          <a href="services.html" class="nav-link py-2">Services</a>
-          <a href="portfolio.html" class="nav-link py-2">Portfolio</a>
-          <a href="experience.html" class="nav-link py-2">Experience</a>
-          <a href="blog.html" class="nav-link py-2">Blog</a>
-          <a href="contact.html" class="nav-link py-2">Contact</a>
+          <a href="#home" class="nav-link py-2">Home</a>
+          <a href="#services" class="nav-link py-2">Services</a>
+          <a href="#portfolio" class="nav-link py-2">Portfolio</a>
+          <a href="#experience" class="nav-link py-2">Experience</a>
+          <a href="#skills" class="nav-link py-2">Skills</a>
+          <a href="#contact" class="nav-link py-2">Contact</a>
           <button id="mobileThemeToggle" class="theme-toggle p-2 rounded-full w-full text-left">
             <i class="fas fa-moon mr-2" id="mobileThemeIcon"></i> Toggle Theme
           </button>
@@ -330,66 +805,69 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20 hero-pattern">
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-20 right-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-float delay-1000"></div>
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="hero-content">
-        <div class="space-y-8 animate__animated animate__fadeInLeft">
-          <div class="inline-flex items-center gap-3 border border-blue-400/20 text-blue-600 px-6 py-3 rounded-full text-sm font-medium backdrop-blur-sm">
+  <section id="home" class="hero-section">
+    <div class="hero-background"></div>
+    
+    <div class="container mx-auto px-6">
+      <div class="hero-content-wrapper">
+        <div class="hero-text animate__animated animate__fadeInLeft">
+          <div class="inline-flex items-center gap-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-800 dark:text-blue-200 px-6 py-3 rounded-full text-sm font-medium mb-6">
             <div class="relative">
-              <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
-              <div class="absolute inset-0 w-3 h-3 bg-blue-600 rounded-full animate-ping opacity-75"></div>
+              <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+              <div class="absolute inset-0 w-3 h-3 bg-blue-400 rounded-full animate-ping opacity-75"></div>
             </div>
             <span>✨</span> Available for Freelance Projects
           </div>
 
-          <div class="space-y-4">
-            <h1 class="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-              <span class="block text-gray-800 dark:text-gray-200">Hi, I'm</span>
-              <span class="block text-gradient relative">
-                Henry Owade
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 blur-xl rounded-lg"></div>
-              </span>
-            </h1>
+          <h1 class="hero-title">
+            <span class="block">Hi, I'm</span>
+            <span style="color: #1e293b;" class="dark-theme:text-white">Henry Owade</span>
+          </h1>
 
-            <h2 class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
-              <span class="inline-flex items-center gap-2">
-                ⚡ Electronics & Graphics Design Freelancer
-              </span><br />
-              <span class="text-blue-600 font-semibold">PCB Specialist | Engineering Enthusiast</span>
-            </h2>
-          </div>
+          <h2 class="hero-subtitle">
+            <span class="inline-flex items-center gap-2">
+              ⚡ PCB Design Specialist & Electronics Engineer
+            </span>
+          </h2>
 
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto leading-relaxed">
-            Passionate electronics and computer engineering graduate from <span class="text-blue-600 font-semibold">JKUAT</span>, specializing in PCB design,
-            graphics design, and technical services. Bringing innovative solutions to life through automation and electronics repair.
+          <p class="hero-description">
+            Professional PCB designer and electronics engineer specializing in creating innovative circuit designs, technical documentation, and graphic design solutions. Bringing your electronic concepts to life with precision and creativity.
           </p>
 
-          <div class="flex flex-wrap gap-4 justify-center">
-            <div class="flex items-center gap-3 px-4 py-2 rounded-full border border-blue-400/10 hover:border-blue-400/30 transition-all duration-300">
-              <i class="fas fa-map-marker-alt"></i>
-              <span class="text-sm text-gray-600 dark:text-gray-300">Nairobi, Kenya</span>
-            </div>
-            <div class="flex items-center gap-3 px-4 py-2 rounded-full border border-blue-400/10 hover:border-blue-400/30 transition-all duration-300">
-              <i class="fas fa-envelope"></i>
-              <span class="text-sm text-gray-600 dark:text-gray-300">oyotohenry2021@gmail.com</span>
-            </div>
-            <div class="flex items-center gap-3 px-4 py-2 rounded-full border border-blue-400/10 hover:border-blue-400/30 transition-all duration-300">
-              <i class="fas fa-phone"></i>
-              <span class="text-sm text-gray-600 dark:text-gray-300">+254 114 364 956</span>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-4 justify-center">
-            <a href="portfolio.html" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2">
+          <div class="hero-buttons">
+            <a href="#portfolio" class="hero-button hero-button-primary">
               <i class="fas fa-eye"></i> View My Work
             </a>
-            <a href="contact.html" class="px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2">
-              <i class="fas fa-message"></i> Contact Me
+            <a href="#contact" class="hero-button hero-button-secondary">
+              <i class="fas fa-message"></i> Get In Touch
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-container animate__animated animate__fadeInRight">
+          <img 
+            src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+            alt="Advanced PCB Design" 
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Banner -->
+  <section class="px-6">
+    <div class="container mx-auto">
+      <div class="promo-banner">
+        <div class="promo-content">
+          <h3 class="text-2xl font-bold mb-2">Ready to Bring Your Electronics Project to Life?</h3>
+          <p class="mb-4 max-w-2xl mx-auto">From concept to finished product, I deliver professional PCB designs, technical documentation, and graphic designs that exceed expectations.</p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="#portfolio" class="px-6 py-3 bg-white text-blue-900 rounded-full font-semibold hover:bg-gray-100 transition-all flex items-center gap-2">
+              <i class="fas fa-eye"></i> See My Work
+            </a>
+            <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all flex items-center gap-2">
+              <i class="fas fa-message"></i> Start a Project
             </a>
           </div>
         </div>
@@ -397,91 +875,414 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gradient-to-b from-white to-blue-50 dark:bg-gradient-to-b dark:from-gray-900 dark:to-blue-900/20 relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-40 h-40 bg-blue-100 dark:bg-blue-900/30 rounded-full opacity-20 animate-float"></div>
-    <div class="absolute bottom-0 right-0 w-60 h-60 bg-purple-100 dark:bg-purple-900/30 rounded-full opacity-20 animate-float delay-2000"></div>
-    
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-4 section-header">
-          About <span class="text-gradient">Me</span>
-        </h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Driven by curiosity and innovation, transforming ideas into reality through engineering excellence.
-        </p>
-      </div>
+  <!-- Services Section -->
+  <section id="services" class="py-8 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="collapsible-section">
+        <button class="section-toggle" id="servicesToggle">
+          <h2>Professional <span class="text-gradient">Services</span></h2>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="section-content" id="servicesContent">
+          <div class="carousel-container">
+            <div class="carousel-wrapper auto-scroll" id="servicesCarousel">
+              <!-- Graphic Design Service -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Professional design solutions including logos, marketing materials, and brand identity packages.
+                    </p>
+                    <div class="flex gap-2 mb-4">
+                      <a href="https://dribbble.com" target="_blank" class="text-pink-500 hover:text-pink-700">
+                        <i class="fab fa-dribbble"></i>
+                      </a>
+                      <a href="https://behance.net" target="_blank" class="text-blue-600 hover:text-blue-800">
+                        <i class="fab fa-behance"></i>
+                      </a>
+                      <a href="https://canva.com" target="_blank" class="text-blue-400 hover:text-blue-600">
+                        <i class="fab fa-canva"></i>
+                      </a>
+                    </div>
+                    <button 
+                      onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Graphic Design services.'))"
+                      class="w-full py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm"
+                    >
+                      <i class="fas fa-message"></i> Request Service
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6 animate__animated animate__fadeIn">
-          <h3 class="text-2xl font-semibold">My Journey</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Electronics and Computer Engineering graduate from JKUAT (Class of 2025), bridging hardware innovation and creative design.
-          </p>
-          <p class="text-gray-600 dark:text-gray-300">
-            Enjoy strategic chess, creative drawing, Python programming, and 3D modeling.
-          </p>
+              <!-- PCB Design Service -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-xl font-bold mb-3">PCB Design & Fabrication</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Complete PCB design services from schematic to fabrication-ready files and manufacturing support.
+                    </p>
+                    <button 
+                      onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your PCB Design services.'))"
+                      class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm"
+                    >
+                      <i class="fas fa-message"></i> Request Service
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-          <div class="grid md:grid-cols-2 gap-6 mt-6">
-            <div class="card-hover p-6 rounded-xl shadow-sm">
-              <h4 class="font-semibold text-lg mb-3">Passions</h4>
-              <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> Circuit Design & Electronics</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-purple-500 rounded-full"></span> Graphics & Visual Design</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-pink-500 rounded-full"></span> Strategic Chess</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Technical Drawing</li>
-              </ul>
+              <!-- Electronics Repair -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-xl font-bold mb-3">Electronics Repair</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Professional troubleshooting and repair services for electronic devices and systems.
+                    </p>
+                    <button 
+                      onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Electronics Repair services.'))"
+                      class="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm"
+                    >
+                      <i class="fas fa-message"></i> Request Service
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Technical Writing -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-xl font-bold mb-3">Technical Writing</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Professional documentation, user manuals, technical proposals, and engineering reports.
+                    </p>
+                    <button 
+                      onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Technical Writing services.'))"
+                      class="w-full py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm"
+                    >
+                      <i class="fas fa-message"></i> Request Service
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MATLAB/Multisim Simulation -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-xl font-bold mb-3">MATLAB/Multisim Simulation</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Advanced simulation and modeling services for circuit analysis and system validation.
+                    </p>
+                    <button 
+                      onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Simulation services.'))"
+                      class="w-full py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm"
+                    >
+                      <i class="fas fa-message"></i> Request Service
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-hover p-6 rounded-xl shadow-sm">
-              <h4 class="font-semibold text-lg mb-3">Current Focus</h4>
-              <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> 3D Modeling with Blender</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-purple-500 rounded-full"></span> IoT & Automation</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-pink-500 rounded-full"></span> PCB Design</li>
-                <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> Python Programming</li>
-              </ul>
+            <div class="carousel-nav">
+              <button class="carousel-btn" id="servicesPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-btn" id="servicesNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
-
-          <a href="https://drive.google.com/uc?export=download&id=1ZmgtN0ZVZImp6L0VVnMf6GAB1oL9yXD7" class="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2 inline-block">
-            <i class="fas fa-file-download"></i> Download My CV
-          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="space-y-6 animate__animated animate__fadeIn">
-          <div class="card-hover p-6 rounded-xl shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="bg-blue-500 text-white p-3 rounded-lg">
-                <i class="fas fa-graduation-cap"></i>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-8 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+    <div class="container mx-auto px-6">
+      <div class="collapsible-section">
+        <button class="section-toggle" id="portfolioToggle">
+          <h2>My <span class="text-gradient">Portfolio</span></h2>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="section-content" id="portfolioContent">
+          <div class="carousel-container">
+            <div class="carousel-wrapper auto-scroll" id="portfolioCarousel">
+              <!-- Portfolio Item 1 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Biometrics School Feeding System</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      IoT-enabled system with fingerprint authentication and mobile monitoring.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">IoT</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Cloud</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 class="font-semibold text-lg">Education</h4>
-                <p class="text-gray-600 dark:text-gray-300">Foundation for innovation</p>
+
+              <!-- Portfolio Item 2 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Geolocation Emergency Alert System</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Real-time GPS tracking with SMS alerts and web dashboard.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">GPS</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">GSM</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Web App</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Item 3 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1524&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Smart Parking System</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      RFID-based parking management with real-time monitoring.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">RFID</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Sensors</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Item 4 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Obstacle Avoidance Robot</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Autonomous robot with ultrasonic sensors and pathfinding.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Robotics</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Sensors</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Arduino</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Item 5 - KiCad Project -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">4-Layer IoT PCB Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Professional 4-layer PCB for IoT device with RF module and power management.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">KiCad</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">4-Layer PCB</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">RF Design</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Item 6 - Altium Project -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">High-Speed Digital Board</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                      Complex digital board with DDR memory and high-speed interfaces.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">Altium</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">High-Speed</span>
+                      <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-full">DDR</span>
+                    </div>
+                    <a href="https://github.com/HenryOwade" target="_blank" class="w-full py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold text-sm">
+                      <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r">
-              <h5 class="text-blue-600 dark:text-blue-400 font-semibold">B.Sc Electronics and Computer Engineering</h5>
-              <p class="text-gray-600 dark:text-gray-300">JKUAT</p>
-              <p class="text-gray-600 dark:text-gray-300">2020 - 2025</p>
+            <div class="carousel-nav">
+              <button class="carousel-btn" id="portfolioPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-btn" id="portfolioNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="grid grid-cols-2 gap-4">
-            <div class="card-hover p-6 rounded-xl shadow-sm text-center">
-              <div class="text-3xl font-bold text-blue-500">3+</div>
-              <div class="text-gray-600 dark:text-gray-300">Years Experience</div>
+  <!-- Experience Section -->
+  <section id="experience" class="py-8 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="collapsible-section">
+        <button class="section-toggle" id="experienceToggle">
+          <h2>My <span class="text-gradient">Experience</span></h2>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="section-content" id="experienceContent">
+          <div class="carousel-container">
+            <div class="carousel-wrapper auto-scroll" id="experienceCarousel">
+              <!-- Experience Item 1 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="KPLC">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Electronics Engineer Intern</h3>
+                      <p class="text-sm">KPLC • Jan 2023 - Apr 2023</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Designed power circuits, diagnostics, and maintenance for electrical systems.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">Power Systems</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">Circuit Design</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 2 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Freelance">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">PCB Design Specialist</h3>
+                      <p class="text-sm">Freelance • Jun 2022 - Present</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Multi-layer PCB designs for IoT devices and consumer electronics products.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">KiCad</span>
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">Altium</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 3 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80" alt="JKUAT Labs">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Technical Assistant</h3>
+                      <p class="text-sm">JKUAT Labs • Sep 2021 - Dec 2022</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Supported lab operations, conducted simulations, and assisted students with technical projects.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Lab Support</span>
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Simulations</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 4 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Creative Agency">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Graphic Design Intern</h3>
+                      <p class="text-sm">Creative Agency • May 2021 - Aug 2021</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Created marketing materials, logos, and digital illustrations for clients.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Photoshop</span>
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Illustrator</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 5 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Muhoroni Sugar">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">ICT & Electrical Maintenance</h3>
+                      <p class="text-sm">Muhoroni Sugar Company • May 2022 - Aug 2022</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Maintained ICT infrastructure and electrical systems in industrial setting.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">Network Admin</span>
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">Electrical Maintenance</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 6 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Suncity Computer">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Technical Support Specialist</h3>
+                      <p class="text-sm">Suncity Computer Workshop • Dec 2019 - Aug 2020</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Provided technical support including computer repair and software installation.</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">Computer Repair</span>
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">Software Installation</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-hover p-6 rounded-xl shadow-sm text-center">
-              <div class="text-3xl font-bold text-purple-500">50+</div>
-              <div class="text-gray-600 dark:text-gray-300">Projects</div>
-            </div>
-            <div class="card-hover p-6 rounded-xl shadow-sm text-center">
-              <div class="text-3xl font-bold text-green-500">5+</div>
-              <div class="text-gray-600 dark:text-gray-300">Internships</div>
-            </div>
-            <div class="card-hover p-6 rounded-xl shadow-sm text-center">
-              <div class="text-3xl font-bold text-blue-500">24/7</div>
-              <div class="text-gray-600 dark:text-gray-300">Available</div>
+            <div class="carousel-nav">
+              <button class="carousel-btn" id="experiencePrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-btn" id="experienceNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -490,120 +1291,131 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+  <section id="skills" class="py-8 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-4 section-header">
-          My <span class="text-gradient">Skills</span>
-        </h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Comprehensive toolkit in electronics, software, and creative domains from hands-on experience.
-        </p>
-      </div>
+      <div class="collapsible-section">
+        <button class="section-toggle" id="skillsToggle">
+          <h2>My <span class="text-gradient">Skills</span></h2>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="section-content" id="skillsContent">
+          <div class="carousel-container">
+            <div class="carousel-wrapper auto-scroll" id="skillsCarousel">
+              <!-- Skills Item 1 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Technical & Engineering">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Technical & Engineering</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">PCB Design & Layout</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">Circuit Analysis</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">IoT Development</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full text-xs">Embedded Systems</span>
+                  </div>
+                </div>
+              </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Technical & Engineering -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">Technical & Engineering</h3>
-            <div class="skills-badges">
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">PCB Design & Layout</span>
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Circuit Analysis</span>
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">IoT Development</span>
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Embedded Systems</span>
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Arduino Programming</span>
-              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Multisim/Proteus Simulations</span>
+              <!-- Skills Item 2 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="IT & Software">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">IT & Software</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">OS Installation</span>
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">Network Configuration</span>
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">Software Troubleshooting</span>
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full text-xs">System Maintenance</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Item 3 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="Creative Tools">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Creative Tools</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Adobe Photoshop</span>
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Adobe Illustrator</span>
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Canva Design</span>
+                    <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-2 py-1 rounded-full text-xs">Blender 3D</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Item 4 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Engineering Software">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Engineering Software</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">KiCad</span>
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">Altium Designer</span>
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">MATLAB/Simulink</span>
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-2 py-1 rounded-full text-xs">Multisim</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Item 5 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="Soft Skills">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Soft Skills</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Problem Solving</span>
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Team Collaboration</span>
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Leadership</span>
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full text-xs">Client Communication</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Item 6 -->
+              <div class="carousel-item">
+                <div class="service-card compact-card">
+                  <div class="image-overlay-card">
+                    <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Technical Writing">
+                    <div class="image-overlay-content">
+                      <h3 class="font-bold">Technical Writing</h3>
+                    </div>
+                  </div>
+                  <div class="skills-badges">
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">Technical Proposals</span>
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">Project Documentation</span>
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">User Manuals</span>
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-full text-xs">Research Reports</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <!-- IT & Software -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-code"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">IT & Software</h3>
-            <div class="skills-badges">
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">OS Installation</span>
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Network Configuration</span>
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Software Troubleshooting</span>
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">System Maintenance</span>
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Technical Virtual Assistant</span>
-              <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Software Installations</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Creative Tools -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">Creative Tools</h3>
-            <div class="skills-badges">
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Adobe Photoshop</span>
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Adobe Illustrator</span>
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Canva Design</span>
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Microsoft Publisher</span>
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Blender 3D</span>
-              <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Microsoft Paint</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Engineering Software -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-tools"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">Engineering Software</h3>
-            <div class="skills-badges">
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">KiCad</span>
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">Altium Designer</span>
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">MATLAB/Simulink</span>
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">Multisim</span>
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">AutoCAD</span>
-              <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-3 py-1 rounded-full text-sm">SolidWorks</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">Soft Skills</h3>
-            <div class="skills-badges">
-              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Problem Solving</span>
-              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Team Collaboration</span>
-              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Leadership</span>
-              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Client Communication</span>
-              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Critical Thinking</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Writing -->
-        <div class="skills-card card-hover rounded-xl shadow-sm">
-          <div class="skill-image">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <div class="skills-content">
-            <h3 class="text-xl font-semibold mb-4">Technical Writing</h3>
-            <div class="skills-badges">
-              <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full text-sm">Technical Proposals</span>
-              <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full text-sm">Project Documentation</span>
-              <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full text-sm">User Manuals</span>
-              <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full text-sm">Research Reports</span>
-              <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full text-sm">Engineering Reports</span>
+            <div class="carousel-nav">
+              <button class="carousel-btn" id="skillsPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-btn" id="skillsNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -611,50 +1423,169 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-b from-blue-900 to-blue-700 text-white py-12">
+  <!-- Contact Section -->
+  <section id="contact" class="py-8 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">About Me</h3>
-          <p class="text-gray-300">
-            Electronics and Computer Engineering graduate from JKUAT, passionate about PCB design, IoT, and graphics.
+      <div class="collapsible-section">
+        <button class="section-toggle" id="contactToggle">
+          <h2>Get in <span class="text-gradient">Touch</span></h2>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="section-content" id="contactContent">
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+              <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                  <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Location</h4>
+                    <span class="text-gray-600 dark:text-gray-300">Nairobi, Kenya</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                  <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Email</h4>
+                    <span class="text-gray-600 dark:text-gray-300">oyotohenry2021@gmail.com</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                  <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Phone</h4>
+                    <span class="text-gray-600 dark:text-gray-300">+254 114 364 956</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                  <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Availability</h4>
+                    <span class="text-gray-600 dark:text-gray-300">Weekdays: 9AM - 6PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+              <h3 class="text-xl font-semibold mb-4">Connect With Me</h3>
+              <div class="flex gap-4 justify-center mb-6">
+                <a href="https://linkedin.com/in/henry-owade" target="_blank" class="social-icon bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition">
+                  <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="https://github.com/HenryOwade" target="_blank" class="social-icon bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                  <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://twitter.com/henryowade" target="_blank" class="social-icon bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg text-blue-400 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition">
+                  <i class="fab fa-twitter text-2xl"></i>
+                </a>
+                <a href="https://wa.me/254114364956" target="_blank" class="social-icon bg-green-100 dark:bg-green-900/30 p-4 rounded-lg text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-900/50 transition">
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+              </div>
+              <div class="bg-gradient-to-r from-blue-100 to-pink-100 dark:from-blue-900/30 dark:to-pink-900/30 rounded-xl p-4 border border-blue-200 dark:border-blue-700">
+                <h3 class="text-lg font-semibold mb-2">Quick Response Guaranteed</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                  I typically respond to inquiries within 2-4 hours during business hours. For urgent projects, feel free to call or WhatsApp directly.
+                </p>
+                <a href="https://wa.me/254114364956" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline text-sm mt-2">
+                  <i class="fab fa-whatsapp mr-2"></i> Message me on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Footer -->
+  <footer class="professional-footer">
+    <div class="footer-background"></div>
+    <div class="footer-content container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <div class="avatar-small">
+              <img src="https://i.postimg.cc/Df6RPDHK/Screenshot-20250709-091515-Gallery-Photoroom.png" alt="Henry Owade" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Henry Owade</h3>
+          </div>
+          <p class="text-gray-300 mb-4 max-w-md">
+            Electronics and Computer Engineering graduate from JKUAT, passionate about PCB design, IoT, and graphics. Bringing innovative solutions to life through engineering excellence.
           </p>
+          <div class="flex gap-4">
+            <a href="https://linkedin.com/in/henry-owade" target="_blank" class="social-icon bg-blue-600 p-3 rounded-lg text-white hover:bg-blue-700">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/HenryOwade" target="_blank" class="social-icon bg-gray-700 p-3 rounded-lg text-white hover:bg-gray-800">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/henryowade" target="_blank" class="social-icon bg-blue-400 p-3 rounded-lg text-white hover:bg-blue-500">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/254114364956" target="_blank" class="social-icon bg-green-500 p-3 rounded-lg text-white hover:bg-green-600">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
 
         <div>
           <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
-            <li><a href="services.html" class="text-gray-300 hover:text-white transition">Services</a></li>
-            <li><a href="portfolio.html" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
-            <li><a href="experience.html" class="text-gray-300 hover:text-white transition">Experience</a></li>
-            <li><a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a></li>
-            <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
+            <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+            <li><a href="#services" class="text-gray-300 hover:text-white transition">Services</a></li>
+            <li><a href="#portfolio" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
+            <li><a href="#experience" class="text-gray-300 hover:text-white transition">Experience</a></li>
+            <li><a href="#skills" class="text-gray-300 hover:text-white transition">Skills</a></li>
+            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <i class="fas fa-envelope"></i>
-              <span>oyotohenry2021@gmail.com</span>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3">
+              <div class="bg-blue-500 p-2 rounded-lg">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Email</span>
+                <p class="text-white">oyotohenry2021@gmail.com</p>
+              </div>
             </li>
-            <li class="flex items-center gap-2">
-              <i class="fas fa-phone"></i>
-              <span>+254 114 364 956</span>
+            <li class="flex items-center gap-3">
+              <div class="bg-green-500 p-2 rounded-lg">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Phone</span>
+                <p class="text-white">+254 114 364 956</p>
+              </div>
             </li>
-            <li class="flex items-center gap-2">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Nairobi, Kenya</span>
+            <li class="flex items-center gap-3">
+              <div class="bg-purple-500 p-2 rounded-lg">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Location</span>
+                <p class="text-white">Nairobi, Kenya</p>
+              </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-blue-800 text-center">
-        <p>&copy; 2025 Henry Owade. All rights reserved.</p>
+      <div class="mt-8 pt-6 border-t footer-divider text-center">
+        <p class="text-gray-400">&copy; 2025 Henry Owade. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -722,6 +1653,124 @@
         navbar.classList.remove('nav-solid');
         navbar.classList.add('nav-transparent');
       }
+    });
+
+    // Collapsible Sections
+    const sectionToggles = document.querySelectorAll('.section-toggle');
+    
+    sectionToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const content = toggle.nextElementSibling;
+        const icon = toggle.querySelector('.toggle-icon');
+        
+        content.classList.toggle('open');
+        icon.classList.toggle('rotate');
+      });
+    });
+
+    // Improved Carousel functionality with auto-scroll control
+    function initializeCarousel(carouselId, prevBtnId, nextBtnId) {
+      const carousel = document.getElementById(carouselId);
+      const prevBtn = document.getElementById(prevBtnId);
+      const nextBtn = document.getElementById(nextBtnId);
+      let currentPosition = 0;
+      const itemWidth = 280; // Width of each carousel item
+      const gap = 16; // Gap between items
+      const totalWidth = itemWidth + gap;
+      let autoScrollInterval;
+      let isPaused = false;
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentPosition * totalWidth}px)`;
+      }
+
+      function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        
+        autoScrollInterval = setInterval(() => {
+          if (!isPaused) {
+            const maxPosition = carousel.children.length - 3; // Show 3 items at a time
+            if (currentPosition < maxPosition) {
+              currentPosition++;
+            } else {
+              currentPosition = 0; // Reset to start
+            }
+            updateCarousel();
+          }
+        }, 3000); // Slower auto-scroll (3 seconds)
+      }
+
+      function pauseAutoScroll() {
+        isPaused = true;
+        carousel.classList.add('paused');
+      }
+
+      function resumeAutoScroll() {
+        isPaused = false;
+        carousel.classList.remove('paused');
+        
+        // Resume after a delay
+        setTimeout(() => {
+          if (!isPaused) {
+            startAutoScroll();
+          }
+        }, 5000); // Wait 5 seconds before resuming
+      }
+
+      prevBtn.addEventListener('click', () => {
+        pauseAutoScroll();
+        if (currentPosition > 0) {
+          currentPosition--;
+          updateCarousel();
+        }
+        resumeAutoScroll();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        pauseAutoScroll();
+        const maxPosition = carousel.children.length - 3; // Show 3 items at a time
+        if (currentPosition < maxPosition) {
+          currentPosition++;
+          updateCarousel();
+        }
+        resumeAutoScroll();
+      });
+
+      // Pause auto-scroll on hover
+      carousel.addEventListener('mouseenter', pauseAutoScroll);
+      carousel.addEventListener('mouseleave', resumeAutoScroll);
+      
+      // Pause auto-scroll when interacting with buttons inside carousel
+      carousel.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button') || 
+            e.target.tagName === 'A' || e.target.closest('a')) {
+          pauseAutoScroll();
+        }
+      });
+
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+    }
+
+    // Initialize carousels
+    initializeCarousel('servicesCarousel', 'servicesPrev', 'servicesNext');
+    initializeCarousel('portfolioCarousel', 'portfolioPrev', 'portfolioNext');
+    initializeCarousel('experienceCarousel', 'experiencePrev', 'experienceNext');
+    initializeCarousel('skillsCarousel', 'skillsPrev', 'skillsNext');
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
 </body>

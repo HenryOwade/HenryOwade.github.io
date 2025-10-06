@@ -90,38 +90,6 @@
       color: var(--text-color);
     }
 
-    .horizontal-scroll {
-      display: flex;
-      overflow-x: auto;
-      gap: 2rem;
-      padding-bottom: 1rem;
-      scrollbar-width: thin;
-    }
-
-    .horizontal-scroll > div {
-      flex: 0 0 300px;
-    }
-
-    .horizontal-scroll::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .horizontal-scroll::-webkit-scrollbar-thumb {
-      background-color: var(--primary);
-      border-radius: 3px;
-    }
-
-    .service-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .dark-theme .service-card {
-      background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     .section-header {
       position: relative;
       display: inline-block;
@@ -183,6 +151,174 @@
     .dark-theme .bg-gradient-to-b {
       background: linear-gradient(to bottom, var(--bg-color), #1e293b);
     }
+
+    /* Services Hero Section */
+    .services-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+      margin-bottom: 4rem;
+    }
+
+    .services-hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .services-hero-content {
+      color: white;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .services-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .services-hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      height: 100%;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .service-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .service-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+    }
+
+    /* Professional Footer */
+    .professional-footer {
+      background: linear-gradient(135deg, #1e3a8a, #1e293b);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-top: 6rem;
+    }
+
+    .footer-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-divider {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Small avatar */
+    .avatar-small {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-right: 10px;
+      border: 2px solid var(--border-color);
+    }
+    
+    .avatar-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .services-hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .services-hero-subtitle {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body class="relative">
@@ -190,7 +326,12 @@
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
     <div class="container mx-auto px-6 py-3">
       <div class="flex items-center justify-between">
-        <a href="index.html" class="text-2xl font-bold text-white">Henry Owade</a>
+        <div class="flex items-center">
+          <div class="avatar-small">
+            <img src="https://i.postimg.cc/Df6RPDHK/Screenshot-20250709-091515-Gallery-Photoroom.png" alt="Henry Owade" />
+          </div>
+          <a href="index.html" class="text-2xl font-bold text-white">Henry Owade</a>
+        </div>
 
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="nav-link">Home</a>
@@ -233,177 +374,248 @@
     </div>
   </nav>
 
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-gradient-to-b from-blue-50 to-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-blue-900/20 relative overflow-hidden mt-16">
+  <!-- Services Hero Section -->
+  <section class="services-hero">
+    <div class="services-hero-background"></div>
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-4 section-header">
+      <div class="services-hero-content animate__animated animate__fadeInUp">
+        <h1 class="services-hero-title">
           My <span class="text-gradient">Services</span>
-        </h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Tailored technical and creative solutions from concept to completion.
+        </h1>
+        <p class="services-hero-subtitle">
+          Professional solutions in electronics, design, and technology tailored to your specific needs
         </p>
-      </div>
-
-      <div class="horizontal-scroll">
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-pink-500">🎨</div>
-          <h3 class="text-xl font-semibold mb-2">Graphic Design</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Posters, banners, logos, and brand identity.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Logo & Brand Design</li>
-            <li>Marketing Materials</li>
-            <li>Digital Illustrations</li>
-            <li>Image Editing</li>
-            <li>Flyers & Brochures</li>
-            <li>Business Cards</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in Graphic Design service.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-blue-500">🔌</div>
-          <h3 class="text-xl font-semibold mb-2">PCB Design & Fabrication</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Schematic to fabrication-ready files.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Schematic Design</li>
-            <li>PCB Layout</li>
-            <li>Component Selection</li>
-            <li>Manufacturing Support</li>
-            <li>Prototyping</li>
-            <li>Optimization</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in PCB Design service.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-purple-500">🛠️</div>
-          <h3 class="text-xl font-semibold mb-2">Electronics Repair</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Troubleshooting and repair for devices.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Component-Level Repair</li>
-            <li>Circuit Analysis</li>
-            <li>System Diagnostics</li>
-            <li>Optimization</li>
-            <li>Preventive Maintenance</li>
-            <li>Performance Testing</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in Electronics Repair service.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-indigo-500">🤖</div>
-          <h3 class="text-xl font-semibold mb-2">Robotics & Arduino Projects</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Custom robotics and automation systems.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Robot Design</li>
-            <li>Sensor Integration</li>
-            <li>Control Systems</li>
-            <li>IoT Connectivity</li>
-            <li>DIY Electronics</li>
-            <li>Custom Automation</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in Robotics service.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-yellow-500">💻</div>
-          <h3 class="text-xl font-semibold mb-2">Cyber Services</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Digital services for your needs.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Document Printing</li>
-            <li>Professional Binding</li>
-            <li>Lamination</li>
-            <li>Scanning</li>
-            <li>Photocopy</li>
-            <li>Graphic Printing</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in Cyber Services.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-
-        <div class="service-card card-hover p-6 rounded-xl shadow-sm min-w-[300px]">
-          <div class="text-4xl mb-4 text-green-500">📊</div>
-          <h3 class="text-xl font-semibold mb-2">MATLAB/Multisim Simulation</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-            Circuit simulation and modeling.
-          </p>
-          <ul class="text-sm text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1 mb-4">
-            <li>Circuit Simulation</li>
-            <li>Modeling</li>
-            <li>Data Analysis</li>
-            <li>Performance Validation</li>
-            <li>System Optimization</li>
-            <li>Technical Reports</li>
-          </ul>
-          <button 
-            onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! Interested in Simulation service.'))"
-            class="w-full py-2 px-4 border border-green-500 text-green-500 rounded-full hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center justify-center gap-2"
-          >
-            <i class="fas fa-message"></i> Request
-          </button>
-        </div>
-      </div>
-
-      <div class="mt-16 text-center">
-        <div class="bg-gradient-to-r from-blue-100 to-pink-100 dark:from-blue-900/30 dark:to-pink-900/30 rounded-2xl p-8 border border-blue-200 dark:border-blue-700">
-          <h3 class="text-2xl font-bold mb-4">
-            Need Custom Solution?
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            Discuss your unique requirements.
-          </p>
-          <a href="contact.html" class="bg-gradient-to-r from-blue-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 mx-auto inline-block">
-            <i class="fas fa-project-diagram"></i> Discuss Project
+        <div class="flex flex-wrap gap-4 justify-center mt-8">
+          <a href="#services-grid" class="px-6 py-3 bg-white text-blue-900 rounded-full font-semibold hover:bg-gray-100 transition-all flex items-center gap-2">
+            <i class="fas fa-arrow-down"></i> Explore Services
+          </a>
+          <a href="contact.html" class="px-6 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all flex items-center gap-2">
+            <i class="fas fa-calendar"></i> Get Quote
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-b from-blue-900 to-blue-700 text-white py-12">
+  <!-- Services Grid -->
+  <section id="services-grid" class="py-16 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">About Me</h3>
-          <p class="text-gray-300">
-            Electronics and Computer Engineering graduate from JKUAT, passionate about PCB design, IoT, and graphics.
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4 section-header">
+          Professional <span class="text-gradient">Services</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Comprehensive technical and creative services to bring your projects to life
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Graphic Design Service -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Professional design solutions including logos, marketing materials, and brand identity packages.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Logo & Brand Design</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Marketing Materials</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Digital Illustrations</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Business Cards & Flyers</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Graphic Design services.'))"
+              class="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+
+        <!-- PCB Design Service -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">PCB Design & Fabrication</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Complete PCB design services from schematic to fabrication-ready files and manufacturing support.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Schematic Design</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> PCB Layout & Routing</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Component Selection</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Manufacturing Files</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your PCB Design services.'))"
+              class="w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+
+        <!-- Electronics Repair -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Electronics Repair</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Professional troubleshooting and repair services for electronic devices and systems.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Component-Level Repair</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Circuit Analysis</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> System Diagnostics</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Preventive Maintenance</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Electronics Repair services.'))"
+              class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+
+        <!-- Robotics & Arduino -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Robotics & Arduino Projects</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Custom robotics solutions and Arduino-based projects for automation and IoT applications.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Robot Design & Build</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Sensor Integration</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Control Systems</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> IoT Connectivity</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Robotics services.'))"
+              class="w-full py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+
+        <!-- Cyber Services -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">
+              <i class="fas fa-print"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Cyber Services</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Comprehensive digital and printing services for all your documentation and presentation needs.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Document Printing</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Professional Binding</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Lamination Services</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Graphic Printing</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Cyber Services.'))"
+              class="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+
+        <!-- MATLAB/Multisim Simulation -->
+        <div class="service-card card-hover">
+          <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+          <div class="p-6">
+            <div class="service-icon bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">MATLAB/Multisim Simulation</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Advanced simulation and modeling services for circuit analysis and system validation.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Circuit Simulation</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> System Modeling</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Data Analysis</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Performance Validation</li>
+            </ul>
+            <button 
+              onclick="window.open('https://wa.me/254114364956?text=' + encodeURIComponent('Hi Henry! I\\'m interested in your Simulation services.'))"
+              class="w-full py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 font-semibold"
+            >
+              <i class="fas fa-message"></i> Request Service
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center">
+        <div class="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-2xl p-8 border border-blue-200 dark:border-blue-700 max-w-4xl mx-auto">
+          <h3 class="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            Have a unique project requirement? Let's discuss your specific needs and create a tailored solution that fits your vision.
           </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="contact.html" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:opacity-90 transition flex items-center gap-2 font-semibold">
+              <i class="fas fa-comments"></i> Discuss Project
+            </a>
+            <a href="portfolio.html" class="px-6 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition flex items-center gap-2 font-semibold">
+              <i class="fas fa-eye"></i> View Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Footer -->
+  <footer class="professional-footer py-12">
+    <div class="footer-background"></div>
+    <div class="footer-content container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <div class="avatar-small">
+              <img src="https://i.postimg.cc/Df6RPDHK/Screenshot-20250709-091515-Gallery-Photoroom.png" alt="Henry Owade" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Henry Owade</h3>
+          </div>
+          <p class="text-gray-300 mb-4 max-w-md">
+            Electronics and Computer Engineering graduate from JKUAT, passionate about PCB design, IoT, and graphics. Bringing innovative solutions to life through engineering excellence.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://linkedin.com/in/henry-owade" target="_blank" class="social-icon bg-blue-600 p-3 rounded-lg text-white hover:bg-blue-700">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/henryowade" target="_blank" class="social-icon bg-gray-700 p-3 rounded-lg text-white hover:bg-gray-800">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/henryowade" target="_blank" class="social-icon bg-blue-400 p-3 rounded-lg text-white hover:bg-blue-500">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/254114364956" target="_blank" class="social-icon bg-green-500 p-3 rounded-lg text-white hover:bg-green-600">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
 
         <div>
@@ -420,25 +632,40 @@
 
         <div>
           <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <i class="fas fa-envelope"></i>
-              <span>oyotohenry2021@gmail.com</span>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3">
+              <div class="bg-blue-500 p-2 rounded-lg">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Email</span>
+                <p class="text-white">oyotohenry2021@gmail.com</p>
+              </div>
             </li>
-            <li class="flex items-center gap-2">
-              <i class="fas fa-phone"></i>
-              <span>+254 114 364 956</span>
+            <li class="flex items-center gap-3">
+              <div class="bg-green-500 p-2 rounded-lg">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Phone</span>
+                <p class="text-white">+254 114 364 956</p>
+              </div>
             </li>
-            <li class="flex items-center gap-2">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Nairobi, Kenya</span>
+            <li class="flex items-center gap-3">
+              <div class="bg-purple-500 p-2 rounded-lg">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <span class="text-gray-300 text-sm">Location</span>
+                <p class="text-white">Nairobi, Kenya</p>
+              </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-blue-800 text-center">
-        <p>&copy; 2025 Henry Owade. All rights reserved.</p>
+      <div class="mt-12 pt-8 border-t footer-divider text-center">
+        <p class="text-gray-400">&copy; 2025 Henry Owade. All rights reserved.</p>
       </div>
     </div>
   </footer>
